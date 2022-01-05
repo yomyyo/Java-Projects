@@ -1,0 +1,16 @@
+Sammy Tang 
+Andrew Nguyen 
+Assignment 2 disscusion 
+ 
+1. All parts of the program are working. Although not all parts of the assigned methods are implemented through the program. The reason we did not implement all the assigned methods was due to the use of a HashMap implementation of a graph. One that stores the names of vertices as String keys, and the vertices themselves as the key’s values. 
+This made for more efficient lookup and calculation when seeking specific vertices, as well as in the use of djikstra’s algorithm.
+
+2. As far as we are aware, the program works just as we intended. We did ask for permission to make some slight modifications such as the omission or addition of extra methods as needed, and for permission to use a HashMap implementation in place of an ArrayList. Aside from the consequences of those two, the program functions normally. It does however, return INT_MAX if there is no route from vertex a to b. That is intentional. 
+
+3. Normally, were this a traditional graph implementation, I would have said that the largest inefficiency came from the fact that an ArrayList needs to be iterated over from the beginning in order to search for a specific element. But since we used an ArrayList, that inefficiency does not exist. Instead though, I would say the largest point of inefficiency right now comes from djikstra’s algorithm itself. It takes a starting vertex and calculates a path hitting every other vertex. That seems terribly inefficient, and if it were possible for a computer to intuitively select a path from “looking” at it like humans do, that would be the most efficient. Unfortunately, the only thing I can think of that would be similar to this would be to index the information and calculations before someone asks “what’s the shortest route from x to y?” That way, we’d already have the information down.
+
+4. The most difficult part of the assignment was the implementation of djikstra's algorithm through the use of a HashMap.
+Instead of using an ArrayList for the graph object, we used a HashMap which allowed us to increase the efficiency of lookup and calculation, as well as bypass some of the methods that we would’ve needed to create if we had used an ArrayList.
+The program will return INT_MAX if there is no existing route from one vertex to another. 
+5. When testing, we tested by using a start point and end point. At first it was with methods called “findCheapestRoute” etc., but later we unified all of those into a single method “findRoute” that accepted an integer parameter, and passed it on to the djikstra method.
+We used the start point to plug into our djikstra method so that it would return a list of the vertices containing their values which were their shortest path value. We used the end point to find the correct vertex in the ArrayList and return it's value.

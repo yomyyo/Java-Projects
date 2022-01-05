@@ -1,0 +1,25 @@
+Sammy Tang
+Andrew Nguyen
+
+1. Among the three data structures you used, which performed the best, why?
+
+	I (Andrew) added a System.nanoTime() counter to determine which function was fastest. At the end of every function, and during the data structure build, it will print out the amount of time taken in milliseconds to execute. In my own testing, I found that the HashMap was the fastest overall. The HashMap and BST had about equal times (±5ms) in terms of function execution, but the Tree took longer to build. This is likely because each node must be added recursively, so it starts at the top each time to determine what direction, left or right subtree, that node should go. I tried to change this and build the tree from an already sorted array, but the speed difference was marginal. As a result, there are two leftover addNode methods in the BSTree class.
+	The list was on par with the HashMap in all areas of functions. But it did take a noticeably longer time to execute. A few ms more at most. If the data set was much larger, the HashMap would likely be the most efficient.
+
+2. All parts of the program are working as should, and it includes small amounts of error catching functionality as well. It has been left open (does not continue the loop after throwing an error) and simply does a System.exit(0). 
+
+3. In the hashmap and list implementations, it appears that it takes a small amount of time to calculate for showNamesAlphabetically. Although in the list implementation it is highly likely due to the fact that we use insertion sort to sort for all of the names rather than a more efficient sorting method such as quicksort or merge sort.
+
+	This was later changed to utilize Collections.sort(list, new Comparator). See the NameList class for this code. It is Java's built in collections sorting function, and is far more efficient as it likely uses quicksort or mergesort. The list still takes the longest to perform this function, but it's efficiency has increased immensely.
+	The BSTree also takes a lot of time to build, this is likely due to the fact that I sorted it into an array first, before building recursively. The middle of the array is the root, the middle of the left sub array is the left child, etc. I at first implemented a way to build recursively (see addNode) but this array method was faster to execute surprisingly. 
+
+4. One of the most challenging parts of the assignment was doing the hashmap implentation, specifically the mostPopularName method because the hashmap does not keep order so we had to keep a ranking variable in the TreeNode object in order to keep the order of most popular name.
+
+	(Andrew) In my own thoughts, I found that the most challenging part of the assignment was building the tree. Once the tree was built, everything else concerning data retrieval was a simple matter (recursion is great!). But to build the tree itself from raw data was very difficult. Yes, the data was sorted by gender and then occurrences, but I wanted the tree to be built alphabetically, so I could not simply read line by line. I devised many ways to build the tree and determine alphabetical order, but in the end, simply putting it into an array, sorting, and building recursively was still faster to execute. Given a larger data set, I would try to use an AVL tree next time. But considering that this data comes from the US Social Security Administration and the Census, I doubt there is a much larger data set unless you went global.
+
+5. For test data, we found the source of the yob2014.txt file, and simply downloaded all the data from 1880 - 2015 from the US SSA and Census. 
+
+-Andrew and Sam
+
+
+

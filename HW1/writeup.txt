@@ -1,0 +1,32 @@
+Andrew Nguyen 
+Sammy Tang
+
+All parts of the program are working properly as it should. In terms of efficiency, the program runs smoothly, however
+tends to take longer as the input file size increases. In the example PeterPan file, it took approximately 
+5 minutes to run the entire file. 
+
+The most challenging thing overall was the HashMap bigramCounts. At first we had thought that bigramCounts 
+was to hold only a single token and count how many times that specific token appeared throughout the file. 
+This made working on the method convertCounts difficult because when comparing left and right unigrams, since 
+the tokens were in a HashMap, there was no order kept, and so it could not be compared as left and right 
+unigrams. So to solve this issue, instead of storing single tokens in the HashMap we started to store tokens 
+in pairs, that way an order could be kept to it and you can successfully compare its probability as a left or 
+a right unigram.
+
+Our first test file is a file called helloworld.txt and the dictionary file hellodict.txt. This file was used to
+test whether the program would work for a file that only contains 2 words in it, hello world. The program did
+not discover any words in it no matter how many times h e l l o w o r l d appreared in the text file. This may
+be due to the counts threshold being too high of a number but no matter how we changed the counts threshold, it still did not give any signs of discovering a word. Changing the probability threshold didn't work either.
+
+Our second test file is just a simple sentence with multiple words to see if the program would be able to find 
+words if there was many words that could be discovered. At most the program found approximately 25% of the words 
+in the file.
+
+The combination of counts and probability threshold that discovered the highest number of words was 2 for count
+and under .2 for probability. At 2 for count threshold, the number of words in test2.txt went from 20% discovered 
+to 25% discovered, however at a threshold of 1, there was no words to be found. For the probability, going at a 
+.3 threshold discoverd 20% while .2 discovered 25%. Anything that was less than .2 however stayed at 25% and did
+not help to discover any new words.
+
+Additionally, the maximum number of words discovered in the PeterPan file was 
+
